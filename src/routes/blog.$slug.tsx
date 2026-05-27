@@ -77,7 +77,7 @@ function BlogPost() {
           </div>
 
           <div className="prose-content mt-10 space-y-5 text-[1.0625rem] leading-[1.75] text-foreground/90">
-            {post.body.map((p, i) => (
+            {post.body.map((p: string, i: number) => (
               <p key={i} className="reveal">{p}</p>
             ))}
           </div>
