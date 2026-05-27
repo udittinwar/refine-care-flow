@@ -1,29 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { TrustStrip } from "@/components/site/TrustStrip";
+import { HowItWorks } from "@/components/site/HowItWorks";
+import { Doctors } from "@/components/site/Doctors";
+import { BlogGrid } from "@/components/site/BlogGrid";
+import { CTASection } from "@/components/site/CTASection";
+import { Footer } from "@/components/site/Footer";
+import { MobileStickyCTA } from "@/components/site/MobileStickyCTA";
+import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Caremint — Premium teleconsultation & clinician-written health writing" },
+      {
+        name: "description",
+        content:
+          "Talk to a board-certified doctor in minutes. Clear care, fair prices, and clinician-written articles on sleep, nutrition, and everyday health.",
+      },
+      { property: "og:title", content: "Caremint — Premium teleconsultation" },
+      {
+        property: "og:description",
+        content: "Board-certified doctors, fast consultations, plain-English health writing.",
+      },
     ],
   }),
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  useReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <main>
+        <Hero />
+        <TrustStrip />
+        <HowItWorks />
+        <Doctors />
+        <BlogGrid />
+        <CTASection />
+      </main>
+      <Footer />
+      <MobileStickyCTA />
     </div>
   );
 }
